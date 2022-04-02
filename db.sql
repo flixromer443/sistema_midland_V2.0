@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 02-04-2022 a las 13:08:22
+-- Tiempo de generación: 02-04-2022 a las 19:33:48
 -- Versión del servidor: 5.7.34
 -- Versión de PHP: 7.4.20
 
@@ -2734,8 +2734,7 @@ INSERT INTO `partners` (`id`, `partner`, `headline`) VALUES
 (26070, ' BENITEZ WILSON RODRIGO', 0),
 (26071, ' CABAÑA IAN DAVID', 0),
 (26072, ' DIAZ ALAN AFUSTIN', 0),
-(26073, ' ALTIERI MIA PRISCILA', 0),
-(35663, 'FELIX EDUARDO ETCHEGARAY', 0);
+(26073, ' ALTIERI MIA PRISCILA', 0);
 
 --
 -- Disparadores `partners`
@@ -6408,9 +6407,7 @@ INSERT INTO `partners_activities` (`pid`, `aid`) VALUES
 (26070, 1),
 (26071, 1),
 (26072, 1),
-(26073, 1),
-(35663, 1),
-(35663, 5);
+(26073, 1);
 
 --
 -- Índices para tablas volcadas
