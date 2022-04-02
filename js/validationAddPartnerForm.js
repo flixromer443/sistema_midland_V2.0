@@ -14,7 +14,7 @@ $(function () {
      
           
         }).then(function(datos){
-            console.log(datos);
+            
         if(datos==1){
             $('#firstname').removeClass('is-valid');
             $('#lastname').removeClass('is-valid');

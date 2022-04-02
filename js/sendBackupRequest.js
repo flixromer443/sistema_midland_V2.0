@@ -20,7 +20,6 @@ function generateFiles(file){
           },
      
         }).then(function(datos){
-            console.log(datos)
             window.open(`./files/${file}.csv`)
          })    
         

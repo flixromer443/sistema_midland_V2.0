@@ -17,7 +17,6 @@ function changeCheckbox(id){
             },
        
           }).then(function(datos){
-            console.log(datos)  
             //document.getElementById('response').innerHTML=datos
               
            })
@@ -36,10 +35,7 @@ function changeCheckbox(id){
             },
        
           }).then(function(datos){
-            console.log(datos)  
-            //document.getElementById('response').innerHTML=datos
               
            })
     }
-    /**/
 }

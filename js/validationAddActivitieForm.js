@@ -14,7 +14,6 @@ $(function () {
      
           
         }).then(function(datos){
-            console.log(datos);
         if(datos==1){
             $('#activitie').removeClass('is-valid');
             $('#price').removeClass('is-valid');
