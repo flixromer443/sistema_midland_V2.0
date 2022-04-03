@@ -10,7 +10,6 @@ function changeFilter(filter){
        },
   
      }).then(function(datos){
-         console.log(datos)
          document.getElementById('filter_response').innerHTML=datos
          document.getElementById('submit').hidden=false
          document.getElementById('submit').value=filter
@@ -32,7 +31,6 @@ function changeFilter(filter){
       },
  
     }).then(function(datos){
-        console.log(datos)
         document.getElementById('response').innerHTML=datos
         
      }) 

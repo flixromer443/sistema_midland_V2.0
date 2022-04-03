@@ -18,12 +18,17 @@ $hoy=getdate();
 
  $pdf = new FPDF();
 $pdf->AddPage();
-$pdf->Image('../img/midland.png' , 10 ,2, 15 , 15,'PNG');
- $pdf->SetX(155);
+$pdf->SetY(15);
+$pdf->SetX(25);
+$pdf->SetFont('Arial','I',16);
+ $pdf->Cell(40,10,'Club Atletico Ferrocarril Midland');
+$pdf->SetX(155);
  
- $pdf->SetFont('Arial','B',14);
- $pdf->Cell(40,10,''.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year']);
 
+$pdf->SetFont('Arial','B',14);
+$pdf->Cell(40,10,''.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year']);
+$pdf->SetY(20);
+$pdf->Image('../img/midland.png' , 10 ,10, 15 , 15,'PNG');
  $pdf->Ln(10);
  $pdf->Cell(40,10,'Socio: '.$row[1].' ');
  $pdf->Ln(10);
@@ -54,6 +59,10 @@ $pdf->Image('../img/midland.png' , 10 ,2, 15 , 15,'PNG');
     $pdf->Cell(40,10,$row2[2]);
    $pdf->SetX(65); 
     $vencimiento=explode('/',$row2[4]);
+    if(intval($vencimiento[1]+1)==13){
+        $vencimiento[1]=0;
+        $vencimiento[2]+=1;
+      }
     $pdf->Cell(40,10,$row2[4]);
      $pdf->SetX(90); 
     $pdf->Cell(40,10,'$'.$row2[3]);

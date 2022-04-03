@@ -33,6 +33,5 @@ function pay(){
     const urlParams = new URLSearchParams(valores);
 
     let pid = urlParams.get('id');
-    console.log(pid)
     window.open(`../components/plan.php?pid=${pid}&&codes=${codes} `)
 }

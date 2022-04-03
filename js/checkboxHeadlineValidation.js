@@ -16,7 +16,6 @@ function changeHeadlineCheckbox(id){
             },
        
           }).then(function(datos){
-            console.log(datos)  
             setTimeout(function(){window.location.reload()},1000)
               
            })
@@ -34,10 +33,8 @@ function changeHeadlineCheckbox(id){
             },
        
           }).then(function(datos){
-            console.log(datos)  
             setTimeout(function(){window.location.reload()},1000)
               
            })
     }
-    /**/
 }

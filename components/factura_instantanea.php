@@ -1,17 +1,47 @@
 <?php
     require("../librerias/fpdf182/fpdf.php");
     include("../config/conexion.php");
-    $pid=$_GET['pid'];
-    $codes=$_GET['codes'];
-    $query="select * from partners where id='$pid'";
+    $query="SELECT date_format(now(),'%d/%m/%y')";
     $res=mysqli_query($link,$query);
     $row=mysqli_fetch_array($res);
-   
+    
+    $fecha=$row[0];
+    
+    $partner=$_GET['partner'];
+    $partner=strtoupper($partner);
+    $pid=$_GET['pid'];
+    $codes=$_GET['codes'];
 
+    $codes_separated=explode(',',$codes);
+    $number_of_codes=count($codes_separated);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //$query="select * from partners where id='$pid'";
+    //$res=mysqli_query($link,$query);
+    //$row=mysqli_fetch_array($res);
+    //$query2="select * from accounts where pid='$pid'";
+    //$res2=mysqli_query($link,$query2);
     
-    
-    
-    
+    //$number_of_codes--;
+    //$code= $codes_separated[$number_of_codes]."<br>";
+    //$query2="select a.id,a.pid,a.activitie,a.price,a.fecha,p.partner from accounts as a inner join partners as p on p.id=a.pid where a.id='$code'";
+    //$res2=mysqli_query($link,$query2); 
 
     
 $pdf = new FPDF();
@@ -21,6 +51,7 @@ $hoy=getdate();
 
  $pdf = new FPDF();
 $pdf->AddPage();
+
 $pdf->SetY(15);
 $pdf->SetX(25);
 $pdf->SetFont('Arial','I',16);
@@ -32,11 +63,12 @@ $pdf->SetFont('Arial','B',14);
 $pdf->Cell(40,10,''.$hoy['mday'].'/'.$hoy['mon'].'/'.$hoy['year']);
 $pdf->SetY(20);
 $pdf->Image('../img/midland.png' , 10 ,10, 15 , 15,'PNG');
+ 
 
  $pdf->Ln(10);
- $pdf->Cell(40,10,'Socio: '.$row[1].' ');
+ $pdf->Cell(40,10,'Socio: '.$partner.' ');
  $pdf->Ln(10);
- $pdf->Cell(40,10,utf8_decode('N° de socio: ').$row[0].' ');
+ $pdf->Cell(40,10,utf8_decode('N° de socio: ').$pid.' ');
  $pdf->Ln(15);
 
  $pdf->SetFont('Arial','B',16);
@@ -58,31 +90,33 @@ $pdf->Image('../img/midland.png' , 10 ,10, 15 , 15,'PNG');
  $total=0;
  $pdf->SetFont('Arial','I',12);
 
-//una locura pero funciona XD
-$codes_separated=explode(',',$codes);
-$number_of_codes=count($codes_separated);
-while($number_of_codes>0){
+ while($number_of_codes>0){
     $number_of_codes--;
     $code= $codes_separated[$number_of_codes]."<br>";
-    $query2="select a.id,a.pid,a.activitie,a.price,a.fecha,p.partner from accounts as a inner join partners as p on p.id=a.pid where a.id='$code'";
+    $query2="select * from activities where id='$code'";
     $res2=mysqli_query($link,$query2); 
     while($row2=mysqli_fetch_array($res2)){
-        $total+=$row2[3];
-        $pdf->Cell(40,10,$row2[2]);
+        $total+=$row2[2];
+        $vencimiento=explode("/",$row[0]);
+
+        if(intval($vencimiento[1]+1)==13){
+            $vencimiento[1]=0;
+            $vencimiento[2]+=1;
+          }
+
+        $pdf->Cell(40,10,$row2[1]);
         $pdf->SetX(65); 
-        $vencimiento=explode('/',$row2[4]);
-        $pdf->Cell(40,10,$row2[4]);
+        $pdf->Cell(40,10,$fecha);
         $pdf->SetX(90); 
-        $pdf->Cell(40,10,'$'.$row2[3]);
+        $pdf->Cell(40,10,'$'.$row2[2]);
         $pdf->SetX(105);
         $pdf->Cell(40,10,$vencimiento[0].'/'.intval($vencimiento[1]+1).'/'.$vencimiento[2]);
         $pdf->SetX(135);
-        $pdf->Cell(40,10,$row2[5]);
+        $pdf->Cell(40,10,$partner);
         $pdf->Ln(5);
      }
     
 }
-
 
 $pdf->SetFont('Arial','B',16);
 $pdf->Ln(10);
