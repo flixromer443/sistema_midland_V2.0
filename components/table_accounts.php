@@ -31,6 +31,10 @@
             <tbody >';
                 while($row=mysqli_fetch_array($res)){
                     $fecha=explode('/',$row[4]);
+                    if(intval($fecha[1]+1)==13){
+                      $fecha[1]=0;
+                      $fecha[2]+=1;
+                    }
                     echo '<tr id='.$row[0].' class="bg-light">
                         <th scope="row">'.$pid.'</th>
                         <td>'.$row[2].'</td>
@@ -147,6 +151,10 @@
             <tbody >';
                 while($row=mysqli_fetch_array($res)){
                     $fecha=explode('/',$row[4]);
+                    if(intval($fecha[1]+1)==13){
+                      $fecha[1]=0;
+                      $fecha[2]+=1;
+                    }
                     echo '<tr id='.$row[0].' class="bg-light">
                         <th scope="row">'.$pid.'</th>
                         <td>'.$row[2].'</td>

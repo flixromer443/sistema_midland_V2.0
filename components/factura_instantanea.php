@@ -6,7 +6,6 @@
     $row=mysqli_fetch_array($res);
     
     $fecha=$row[0];
-    $vencimiento=explode("/",$row[0]);
     
     $partner=$_GET['partner'];
     $partner=strtoupper($partner);
@@ -98,6 +97,13 @@ $pdf->Image('../img/midland.png' , 10 ,10, 15 , 15,'PNG');
     $res2=mysqli_query($link,$query2); 
     while($row2=mysqli_fetch_array($res2)){
         $total+=$row2[2];
+        $vencimiento=explode("/",$row[0]);
+
+        if(intval($vencimiento[1]+1)==13){
+            $vencimiento[1]=0;
+            $vencimiento[2]+=1;
+          }
+
         $pdf->Cell(40,10,$row2[1]);
         $pdf->SetX(65); 
         $pdf->Cell(40,10,$fecha);

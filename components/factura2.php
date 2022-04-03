@@ -60,6 +60,10 @@ $pdf->Image('../img/midland.png' , 10 ,10, 15 , 15,'PNG');
     $pdf->Cell(40,10,$row2[2]);
    $pdf->SetX(65); 
     $vencimiento=explode('/',$row2[4]);
+    if(intval($vencimiento[1]+1)==13){
+        $vencimiento[1]=0;
+        $vencimiento[2]+=1;
+      }
     $pdf->Cell(40,10,$row2[4]);
      $pdf->SetX(90); 
     $pdf->Cell(40,10,'$'.$row2[3]);
