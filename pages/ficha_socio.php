@@ -150,7 +150,8 @@ Filtrar por
           <th scope="col">N° de socio</th>
           <th scope="col">Nombre y apellido</th>
           <th scope="col">titular</th>
-          <th scope="col">Acciones</th>
+          <th scope="col">Facturas</th>
+
   
         </tr>
         </thead>
@@ -184,6 +185,7 @@ Filtrar por
             <i class="fa fa-download"></i> Generar couta social
             </button>
             </a>
+            
             <?php
               if($row[2]==1){
                 echo '<a href="../components/factura2.php?pid='.$id.'" target="_blank">
@@ -194,7 +196,11 @@ Filtrar por
               }
             ?>
           
-           
+          <a href="../components/factura_afip.php?pid=<?php echo $id;?>" target="_blank">
+            <button type="button" class="btn btn-warning" >
+            <i class="fa fa-download"></i> Generar factura de afip
+            </button>
+            </a>
             
             
 
