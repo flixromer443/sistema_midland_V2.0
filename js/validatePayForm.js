@@ -25,10 +25,16 @@ function addToPayment(code,element){
     }
    
 }
-function pay(){
+function pay(action){
     let partner=$('#partner').val()
     let number=$('#number').val()
-    
-    
-    window.open(`./components/factura_instantanea.php?pid=${number}&&partner=${partner}&&codes=${codes}&&prices=${prices} `)
+    switch(action){
+        case 1:
+            window.open(`./components/factura_instantanea.php?pid=${number}&&partner=${partner}&&codes=${codes}&&prices=${prices} `)
+        break;
+        default:
+            window.open(`./components/factura_instantanea_afip.php?pid=${number}&&partner=${partner}&&codes=${codes}&&prices=${prices} `)
+        break;
+            
+    }
 }
