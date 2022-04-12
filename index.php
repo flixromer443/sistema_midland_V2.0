@@ -135,8 +135,8 @@
   </div>
  
 </div>
-<div class="modal fade" id="exampleModalToggle5" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade " id="exampleModalToggle5" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content " style="color: aliceblue;" >
       <div class="modal-header bg-warning">
         <h5 class="modal-title" id="exampleModalToggleLabel" >Generar factura instantanea </h5>
@@ -154,20 +154,40 @@
         $res=mysqli_query($link,$query);
         if(mysqli_num_rows($res)>0){
             echo '<input type="hidden" id="pid"value="'.$pid.'">';
-            echo '<ul class="list-group">
-            <li class="list-group-item active" aria-current="true">Actividades</li>';
+            echo '<table class="table">
+            <thead class="bg-primary" style="color:white">
+              <tr>
+                <th scope="col">Actividad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Agregar</th>
+              </tr>
+            </thead>';
             while($row=mysqli_fetch_array($res)){
-                $aid=$row[0];
-                $query2="select * from partners_activities where pid='$pid' and aid='$aid'";
-                $res2=mysqli_query($link,$query2);
-                    echo '<li class="list-group-item">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" id="'.$row[0].'"  style="float:right" onclick="addToPayment('.$row[0].',this)" type="checkbox" role="switch">
-                        <label class="form-check-label" for="'.$row[0].'" style="float:left"><strong>'.$row[1].'</strong></label>
-                    </div></li>';
-                
+              echo '<tbody class="bg-light">
+              <tr>
+                <td>'.$row[1].'</td>
+                <td>
+                  <div class="input-group mb-3">
+                  <button class="btn btn-warning disabled" type="button" >$</button>
+                  <input type="text" class="form-control" placeholder="0" id="price-'.$row[0].'" >
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check form-switch">
+                  <input class="form-check-input" id="'.$row[0].'"  style="float:right" onclick="addToPayment('.$row[0].',this)" type="checkbox" role="switch">
+                  </div>
+                </td>
+              </tr>';
             }
-            echo '</ul>';
+            
+              
+
+
+
+
+            echo'</tbody>
+          </table>';
+            
         }else{
             "no funciona";
         }
@@ -176,8 +196,7 @@
 
 
 
-
-
+ 
 
 
 
@@ -199,7 +218,8 @@
 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="pay()">Continuar</button>
+        <button class="btn btn-primary" onclick="pay(1)"><i class="fa fa-print"></i> Factura digital</button>
+        <button class="btn btn-warning" onclick="pay(2)"><i class="fa fa-print"></i> Factura de AFIP</button>
       </div>
     </div>
    
