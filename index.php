@@ -187,18 +187,7 @@
 
             echo'</tbody>
           </table>';
-            /*echo '<ul class="list-group">
-            <li class="list-group-item active" aria-current="true">Actividades</li>';
-            while($row=mysqli_fetch_array($res)){
-                $aid=$row[0];
-                    echo '<li class="list-group-item">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" id="'.$row[0].'"  style="float:right" onclick="addToPayment('.$row[0].',this)" type="checkbox" role="switch">
-                        <label class="form-check-label" for="'.$row[0].'" style="float:left"><strong>'.$row[1].'</strong></label>
-                    </div></li>';
-                
-            }
-            echo '</ul>';*/
+            
         }else{
             "no funciona";
         }
@@ -207,8 +196,7 @@
 
 
 
-
-
+ 
 
 
 
@@ -230,7 +218,8 @@
 
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="pay()">Continuar</button>
+        <button class="btn btn-primary" onclick="pay(1)"><i class="fa fa-print"></i> Factura digital</button>
+        <button class="btn btn-warning" onclick="pay(2)"><i class="fa fa-print"></i> Factura de AFIP</button>
       </div>
     </div>
    

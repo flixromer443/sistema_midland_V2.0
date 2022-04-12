@@ -187,4 +187,3 @@ $pdf->Cell(40,10,'$'.$total);
  
 $pdf->Output();
     ?>
-$pdf->Ln(20);

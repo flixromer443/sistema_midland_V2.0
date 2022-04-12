@@ -198,7 +198,7 @@ Filtrar por
           
           <a href="../components/factura_afip.php?pid=<?php echo $id;?>" target="_blank">
             <button type="button" class="btn btn-warning" >
-            <i class="fa fa-download"></i> Generar factura de afip
+            <i class="fa fa-download"></i> Generar factura de AFIP
             </button>
             </a>
             
