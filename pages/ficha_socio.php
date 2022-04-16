@@ -193,6 +193,11 @@ Filtrar por
                 <i class="fa fa-download"></i> Generar couta familiar
                 </button>
                 </a>';
+                echo '<a href="../components/factura_familar_afip.php?pid='.$id.'" target="_blank">
+                <button type="button" class="btn btn-secondary" >
+                <i class="fa fa-download"></i> Generar faactura familiar de AFIP
+                </button>
+                </a>';
               }
             ?>
           
