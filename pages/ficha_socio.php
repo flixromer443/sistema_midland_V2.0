@@ -182,7 +182,7 @@ Filtrar por
             <!-- Button trigger modal -->
             <a href="../components/factura.php?pid=<?php echo $id;?>" target="_blank">
             <button type="button" class="btn btn-primary" >
-            <i class="fa fa-download"></i> Generar couta social
+            <i class="fa fa-download"></i> Generar cuota social
             </button>
             </a>
             
@@ -190,12 +190,12 @@ Filtrar por
               if($row[2]==1){
                 echo '<a href="../components/factura2.php?pid='.$id.'" target="_blank">
                 <button type="button" class="btn btn-info" >
-                <i class="fa fa-download"></i> Generar couta familiar
+                <i class="fa fa-download"></i> Generar cuota familiar
                 </button>
                 </a>';
                 echo '<a href="../components/factura_familar_afip.php?pid='.$id.'" target="_blank">
                 <button type="button" class="btn btn-secondary" >
-                <i class="fa fa-download"></i> Generar faactura familiar de AFIP
+                <i class="fa fa-download"></i> Generar factura familiar de AFIP
                 </button>
                 </a>';
               }
