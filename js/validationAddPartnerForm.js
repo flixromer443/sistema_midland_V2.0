@@ -9,6 +9,8 @@ $(function () {
             'verbo':'create',
             'firstname':$('#firstname').val(),
             'lastname':$('#lastname').val(),
+            'partner_id':$('#partner_id').val(),
+
           },
            
      
@@ -45,6 +47,10 @@ $(function () {
          lastname:{
             required:true,
             minlength:3
+        },
+        partner_id:{
+          required:true,
+          number:true
         }
         
       },
@@ -56,6 +62,10 @@ $(function () {
         lastname:{
             required:'Este campo es obligatorio',
             minlength:'El apellido ingresado no es valido'
+        },
+        partner_id:{
+          required:'Este campo es obligatorio',
+          number:'Ingrese un numero valido'
         }
       },
       errorElement: 'span',

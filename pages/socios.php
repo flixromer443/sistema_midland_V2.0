@@ -94,6 +94,10 @@
         <div class="form-group">
            <input type="text" placeholder="Apellido/s" name="lastname" id="lastname">
         </div>
+        <br><br>
+        <div class="form-group">
+           <input type="number" placeholder="N° de socio" name="partner_id" id="partner_id">
+        </div>
       </div>
       <div class="container" id="message">
       </div>

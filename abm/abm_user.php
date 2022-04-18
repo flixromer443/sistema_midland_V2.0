@@ -4,15 +4,16 @@
         case 'create':
             $firstname=trim($_POST['firstname']);
             $lastname=trim($_POST['lastname']);
+            $partner_id=trim($_POST['partner_id']);
             if(!empty($firstname)&&!empty($lastname)){
                 $complete_name=trim(strtoupper($firstname))." ".trim(strtoupper($lastname));
-                $query="select * from partners where partner='$complete_name'";
+                $query="select * from partners where partner='$complete_name' or id='$partner_id'";
                 $res=mysqli_query($link,$query);
                 if(mysqli_num_rows($res)>0){
                     echo json_encode(1);
                 }else{
-                    $stmt=mysqli_prepare($link,"INSERT INTO partners(partner) values(?)");
-                    mysqli_stmt_bind_param($stmt,'s',$complete_name);
+                    $stmt=mysqli_prepare($link,"INSERT INTO partners(id,partner) values(?,?)");
+                    mysqli_stmt_bind_param($stmt,'is',$partner_id,$complete_name);
                     mysqli_stmt_execute($stmt); 
                     echo json_encode(0);
                 }
